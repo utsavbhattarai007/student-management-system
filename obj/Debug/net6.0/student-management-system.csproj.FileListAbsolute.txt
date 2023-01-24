@@ -1,0 +1,15 @@
+D:\C#\student-management-system\bin\Debug\net6.0\student-management-system.exe
+D:\C#\student-management-system\bin\Debug\net6.0\student-management-system.deps.json
+D:\C#\student-management-system\bin\Debug\net6.0\student-management-system.runtimeconfig.json
+D:\C#\student-management-system\bin\Debug\net6.0\student-management-system.dll
+D:\C#\student-management-system\bin\Debug\net6.0\student-management-system.pdb
+D:\C#\student-management-system\obj\Debug\net6.0\student-management-system.csproj.AssemblyReference.cache
+D:\C#\student-management-system\obj\Debug\net6.0\student-management-system.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\student-management-system\obj\Debug\net6.0\student-management-system.AssemblyInfoInputs.cache
+D:\C#\student-management-system\obj\Debug\net6.0\student-management-system.AssemblyInfo.cs
+D:\C#\student-management-system\obj\Debug\net6.0\student-management-system.csproj.CoreCompileInputs.cache
+D:\C#\student-management-system\obj\Debug\net6.0\student-management-system.dll
+D:\C#\student-management-system\obj\Debug\net6.0\refint\student-management-system.dll
+D:\C#\student-management-system\obj\Debug\net6.0\student-management-system.pdb
+D:\C#\student-management-system\obj\Debug\net6.0\student-management-system.genruntimeconfig.cache
+D:\C#\student-management-system\obj\Debug\net6.0\ref\student-management-system.dll
