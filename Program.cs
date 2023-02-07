@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using IronXL;
+
 
 namespace Program
 {
-
     public class Student
     {
         public string name, city;
@@ -37,14 +38,20 @@ namespace Program
         static int sno, totalMarks;
         static string name, city;
 
+        static WorkBook workbook = WorkBook.Create(ExcelFileFormat.XLSX);
+        static WorkSheet sheet = workbook.CreateWorkSheet("Student");
         public static void Main(string[] args)
         {
+            IronXL.License.LicenseKey = "IRONXL.UTSAVBHATTARAI.30717-2FC590FF9C-AAE6JN-OUSWNKNYAU6Y-UEEABLOHR52Y-FMDSDAYOYUSL-CVTWOHQZMVKD-I7FPEVJJFSKS-NCZUD5-T3BMSTK5IEGJEA-DEPLOYMENT.TRIAL-4CHDVT.TRIAL.EXPIRES.06.MAR.2023";
+            sheet["A1"].Value = "Sno";
+            sheet["B1"].Value = "Name";
+            sheet["C1"].Value = "City";
+            sheet["D1"].Value = "Total Marks";
             string ch = "";
+            getStudent();
             msg();
-
             do
             {
-
                 Console.Write("\nSelect your choice : ");
                 int choice = 0;
                 bool IsConversionSuccessful = int.TryParse(Console.ReadLine(), out choice);
@@ -86,6 +93,8 @@ namespace Program
                             viewStudentResult(); break;
 
                         case 7:
+                            save(); break;
+                        case 8:
                             return;
 
                         default:
@@ -122,7 +131,7 @@ namespace Program
             Console.WriteLine("\n\tSTUDENT MANAGEMENT SYSTEM");
             Console.WriteLine("----------------------------------------");
 
-            Console.WriteLine("1. New Student\n2. Update Student\n3. Delete Student\n4. View Student\n5. View All Students\n6. View Student Result\n7. Exit\n");
+            Console.WriteLine("1. New Student\n2. Update Student\n3. Delete Student\n4. View Student\n5. View All Students\n6. View Student Result\n7. Save\n8. Exit\n");
         }
 
         public static void enterDetails()
@@ -166,8 +175,24 @@ namespace Program
             if (!IsConversionSuccessful)
                 Console.Write("\nPlease enter a valid format");
         }
-
-
+        public static void getStudent()
+        {
+            var workbook = WorkBook.Load("Students.xlsx");
+            var sheet = workbook.GetWorkSheet("Student");
+            
+            //get the rows from the sheet
+            var rows = sheet.Rows.Count();
+            for (int i = 2; i <= rows; i++)
+            {
+                sno = Convert.ToInt32(sheet[$"A{i}"].Value);
+                name = sheet[$"B{i}"].Value.ToString();
+                city = sheet[$"C{i}"].Value.ToString();
+                totalMarks = Convert.ToInt32(sheet[$"D{i}"].Value);
+                students.Add(new Student(sno, name, city, totalMarks));
+            }
+            
+        }
+       
         public static void updateStudent()
         {
             enterDetails();
@@ -278,7 +303,6 @@ namespace Program
         {
             Console.WriteLine("\n\nStudents Details");
             Console.WriteLine("---------------------");
-
             if (students.Count == 0)
                 Console.Write("\n0 records");
             else
@@ -311,8 +335,32 @@ namespace Program
             }
             else
             {
-                Console.WriteLine("No Student Found!");
+                Console.WriteLine("\t No Student Found!");
             }
+        }
+
+        public static void save()
+        {
+           // save the list of new students to the excel sheet
+            int l = sheet.Rows.Count();
+            for (int i = 2; i <= l; i++)
+            {
+                sheet[$"A{i}"].Value = "";
+                sheet[$"B{i}"].Value = "";
+                sheet[$"C{i}"].Value = "";
+                sheet[$"D{i}"].Value = "";
+            }
+
+            int counter = 0;
+            foreach (Student student in students)
+            {
+                sheet[$"A{counter + 2}"].Value = student.sno;
+                sheet[$"B{counter + 2}"].Value = student.name;
+                sheet[$"C{counter + 2}"].Value = student.city;
+                sheet[$"D{counter + 2}"].Value = student.totalMarks;
+                counter++;
+            }
+            workbook.SaveAs("Students.xlsx");           
         }
     }
 }
