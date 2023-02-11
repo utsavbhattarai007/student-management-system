@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using IronXL;
 
-
 namespace Program
 {
     public class Student
@@ -466,7 +465,6 @@ namespace Program
                 sheet["G" + i].Value = "";
                 sheet["H" + i].Value = "";
                 sheet["I" + i].Value = "";
-
             }
             int counter = 2;
             foreach (Student student in students)
@@ -482,12 +480,16 @@ namespace Program
                 sheet["I" + counter].Value = student.added_on;
                 counter++;
             }
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write("\nSaving");
             for (int i = 0; i < 3; i++)
             {
                 Console.Write(".");
                 Thread.Sleep(500);
             }
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("\nSaved");
+            Console.ResetColor();
             workbook.SaveAs("Students.xlsx");
         }
     }
