@@ -45,7 +45,7 @@ The function are as follows:
 # Documentation📚
 
 - [Docs file](https://docs.google.com/document/d/17KPDb0W1LATova7aLLrncyPD67Lujg2Ewmb7SdRMDuo/edit?usp=sharing)
-- [Ppt] (https://www.canva.com/design/DAFch0rzTks/I263ZH5NcvGFPO-ShwD_4w/view?utm_content=DAFch0rzTks&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+- [Ppt](https://www.canva.com/design/DAFch0rzTks/I263ZH5NcvGFPO-ShwD_4w/view?utm_content=DAFch0rzTks&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 # Contributing⚡
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
