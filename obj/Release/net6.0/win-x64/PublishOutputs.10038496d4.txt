@@ -1,0 +1,2 @@
+D:\C#\student-management-system\bin\Release\net6.0\win-x64\publish\student-management-system.pdb
+D:\C#\student-management-system\bin\Release\net6.0\win-x64\publish\student-management-system.exe
